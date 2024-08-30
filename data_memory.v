@@ -29,7 +29,7 @@ module data_memory
 		data_memory_RAM[15] = 32'h00000000; // 32'h1000103C
 	end                                     
 	
-	always @(posedge clk) begin
+	always @(mem_write, mem_read, address) begin
 		if (mem_write) begin
 			data_memory_RAM[(address-268439552)/4] <= write_data;
 		end
